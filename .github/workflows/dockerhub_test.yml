@@ -35,24 +35,24 @@ jobs:
       with:
         username: "${{ secrets.DOCKERHUBCONNECTION_DOCKER_USERNAME }}"
         password: "${{ secrets.DOCKERHUBCONNECTION_DOCKER_PASSWORD }}"
-        #    - name: BuildAndPush
-        #      uses: docker/login-action@v3.3.0
-        #      with:
-        #        username: "${{ secrets.DOCKERHUBCONNECTION_DOCKER_USERNAME }}"
-        #        password: "${{ secrets.DOCKERHUBCONNECTION_DOCKER_PASSWORD }}"
-        #    - name: BuildAndPush
-        #      run: docker build . --file "Dockerfile" -t ahioros/rdicidr:${{ github.run_id }} -t ahioros/rdicidr:latest
-        #    - name: BuildAndPush
-        #      run: docker push ahioros/rdicidr:${{ github.run_id }}
-        #    - name: Logout
-        #      run: docker logout
-        #  Deploy-Deployment:
-        #    needs:
-        #    - Containerized-containerizedReactApp
-        #    runs-on: ubuntu-latest
-        #    steps:
-        #    - name: checkout
-        #      uses: actions/checkout@v4.1.0
+    - name: BuildAndPush
+      uses: docker/login-action@v3.3.0
+      with:
+        username: "${{ secrets.DOCKERHUBCONNECTION_DOCKER_USERNAME }}"
+        password: "${{ secrets.DOCKERHUBCONNECTION_DOCKER_PASSWORD }}"
+    - name: BuildAndPush
+      run: docker build . --file "Dockerfile" -t ahioros/rdicidr:${{ github.run_id }} -t ahioros/rdicidr:latest
+    - name: BuildAndPush
+      run: docker push ahioros/rdicidr:${{ github.run_id }}
+    - name: Logout
+      run: docker logout
+      #  Deploy-Deployment:
+      #    needs:
+      #    - Containerized-containerizedReactApp
+      #    runs-on: ubuntu-latest
+      #    steps:
+      #    - name: checkout
+      #      uses: actions/checkout@v4.1.0
 #     # This action only supports checking out GitHub repositories
 #     - uses: actions/checkout@v4.1.0
 #       with:
