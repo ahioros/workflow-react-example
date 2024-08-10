@@ -80,3 +80,5 @@ jobs:
         git commit -m "Deployment ID: ${{ github.run_id }}"
         git push origin master
       shell: bash
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
