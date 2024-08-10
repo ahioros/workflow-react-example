@@ -1,10 +1,10 @@
-name: DockerHub_Test/DockerHub_Test
+name: workflow-react-example
 on:
   push:
     branches:
     - master
 jobs:
-  CodeValidation-codeValidation:
+  CI:
     runs-on: ubuntu-latest
     steps:
     - name: checkout
@@ -25,7 +25,7 @@ jobs:
       run: npm run build
   Containerized-containerizedReactApp:
     needs:
-    - CodeValidation-codeValidation
+    - CI
     runs-on: ubuntu-latest
     steps:
     - name: checkout
@@ -41,7 +41,7 @@ jobs:
         username: "${{ secrets.DOCKERHUBCONNECTION_DOCKER_USERNAME }}"
         password: "${{ secrets.DOCKERHUBCONNECTION_DOCKER_PASSWORD }}"
     - name: BuildAndPush
-      run: docker build . --file "Dockerfile" -t ahioros/rdicidr:${{ github.run_id }} -t ahioros/rdicidr:latest
+      run: docker build . --file "Dockerfile" -t ahioros/rdicidr:latest -t ahioros/rdicidr:${{ github.run_id }}
     - name: BuildAndPush
       run: docker push ahioros/rdicidr:${{ github.run_id }}
     - name: Logout
