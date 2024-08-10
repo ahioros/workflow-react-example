@@ -53,8 +53,8 @@ jobs:
     permissions:
       contents: write
       pages: write
-      id-token: write
-      #      pull-requests: write
+      #    id-token: write
+      pull-requests: write
       #      repository-projects: write
     steps:
     - name: checkout
@@ -62,6 +62,7 @@ jobs:
 #     # This action only supports checking out GitHub repositories
 #    - uses: actions/checkout@v4.1.0
       with:
+        token: ${{ secrets.GITHUB_TOKEN }}
         repository: ahioros/deploy-workflow-react-example
         fetch-depth: 0
 #####
