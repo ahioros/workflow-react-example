@@ -54,7 +54,7 @@ jobs:
       contents: write
       pages: write
       pull-requests: write
-      package: write
+      packages: write
       #      repository-projects: write
     steps:
     - name: checkout
