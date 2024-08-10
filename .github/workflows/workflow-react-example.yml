@@ -52,8 +52,10 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      pull-requests: write
-      repository-projects: write
+      pages: write
+      id-token: write
+      #      pull-requests: write
+      #      repository-projects: write
     steps:
     - name: checkout
       uses: actions/checkout@v4.1.0
