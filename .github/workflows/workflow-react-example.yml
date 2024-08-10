@@ -61,9 +61,9 @@ jobs:
 #     # This action only supports checking out GitHub repositories
 #    - uses: actions/checkout@v4.1.0
       with:
-        branch: ${{ github.ref }}
+        branch: master
         token: ${{ secrets.GITHUB_TOKEN }}
-        repository: ahioros/deploy-workflow-react-example.git
+        #        repository: ahioros/deploy-workflow-react-example.git
         fetch-depth: 0
 #####
     - name: Deploy
