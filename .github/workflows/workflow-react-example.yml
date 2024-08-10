@@ -81,6 +81,8 @@ jobs:
       shell: bash
     - name: Push changes
       uses: ad-m/github-push-action@master
+      permissions:
+        contents: write
       with:
         repository: ahioros/deploy-workflow-react-example
         github_token: ${{ secrets.GITHUB_TOKEN }}
