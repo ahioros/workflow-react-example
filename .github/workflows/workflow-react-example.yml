@@ -63,7 +63,7 @@ jobs:
 #    - uses: actions/checkout@v4.1.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        repository: ahioros/deploy-workflow-react-example
+        repository: ahioros/deploy-workflow-react-example.git
         fetch-depth: 0
 #####
     - name: Deploy
