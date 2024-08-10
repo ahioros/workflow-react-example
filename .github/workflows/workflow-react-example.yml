@@ -68,6 +68,7 @@ jobs:
 #####
     - name: Deploy
       run: |-
+        ls -lah
         TAG=${{ github.run_id }}
         EXP="image: ahioros/rdicidr:[0-9]+"
         REP="image: ahioros/rdicidr:$TAG"
