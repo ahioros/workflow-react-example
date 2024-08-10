@@ -65,6 +65,7 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         repository: ahioros/deploy-workflow-react-example
         fetch-depth: 0
+        persist-credentials: false
 #####
     - name: Deploy
       run: |-
@@ -81,5 +82,5 @@ jobs:
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
+        repository: ahioros/deploy-workflow-react-example
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: master
