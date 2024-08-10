@@ -63,7 +63,7 @@ jobs:
       with:
         branch: master
         token: ${{ secrets.GITHUB_TOKEN }}
-        repository: ahioros/deploy-workflow-react-example.git
+        repository: ahioros/deploy-workflow-react-example
         fetch-depth: 0
 #####
     - name: Deploy
