@@ -84,4 +84,4 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         repository: ahioros/deploy-workflow-react-example
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
