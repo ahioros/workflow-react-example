@@ -51,6 +51,10 @@ jobs:
     - Containerized-containerizedReactApp
     runs-on: ubuntu-latest
     permissions:
+      deployments: write
+      actions: write
+      checks: write
+      statuses: write
       contents: write
       pages: write
       pull-requests: write
@@ -85,4 +89,3 @@ jobs:
       with:
         repository: ahioros/deploy-workflow-react-example
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        github_token: ${{ secrets.GITHUB_TOKEN }}
