@@ -89,3 +89,4 @@ jobs:
       with:
         repository: ahioros/deploy-workflow-react-example
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
