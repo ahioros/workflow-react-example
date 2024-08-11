@@ -23,7 +23,7 @@ jobs:
       run: CI=true npm run test
     - name: npm build
       run: npm run build
-  Containerized-containerizedReactApp:
+  Build_Docker_Image_ReactApp:
     needs:
     - CI
     runs-on: ubuntu-latest
@@ -41,7 +41,7 @@ jobs:
         username: "${{ secrets.DOCKERHUBCONNECTION_DOCKER_USERNAME }}"
         password: "${{ secrets.DOCKERHUBCONNECTION_DOCKER_PASSWORD }}"
 
-    - name: BuildAndPush
+    - name: Build the Docker image
       run: docker build . --file "Dockerfile" -t ahioros/rdicidr:${{ github.run_id }}
 
     - name: Create latest image as well
@@ -55,20 +55,21 @@ jobs:
 
     - name: Logout
       run: docker logout
+
   Deployment:
     needs:
-    - Containerized-containerizedReactApp
+    - Build_Docker_Image_ReactApp
     runs-on: ubuntu-latest
-    permissions:
-      deployments: write
-      actions: write
-      checks: write
-      statuses: write
-      contents: write
-      pages: write
-      pull-requests: write
-      packages: write
-      repository-projects: write
+    #    permissions:
+      #      deployments: write
+      #      actions: write
+      #      checks: write
+      #      statuses: write
+      #      contents: write
+      #      pages: write
+      #      pull-requests: write
+      #      packages: write
+      #      repository-projects: write
     steps:
     - name: checkout
       uses: actions/checkout@v4.1.0
