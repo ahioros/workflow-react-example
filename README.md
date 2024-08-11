@@ -1,5 +1,36 @@
 # workflow-react-example
 
+## How to configure
+
+    1. Set up GitHub Actions workflow permissions:
+
+    Go to repo settings -> Actions -> General -> Workflow Permissions:
+
+![workflow-permissions](workflow-permissions.png)
+
+    2. Create a Personal Access Token:
+
+    Go to your GitHub profile -> Settings -> Developer settings -> Personal access tokens -> Tokens(classic):
+
+![personal-access-token](personal-access-token.png)
+
+    3. Create a repository secret:
+
+    Go to repo settings -> Secrets and variables -> Actions -> Repository Secrets:
+
+![repository-secrets](repository-secrets.png)
+
+All the Kubernetes manifests are here: https://github.com/ahioros/deploy-workflow-react-example
+
+## More information
+
+https://ahioros.info
+
+https://www.ahioros.info/search/label/DevOps
+
+
+
+
 # The React-App rdiCidr
 
 Ok, let's get this out of the way. Why did I choose that name? I chose the name because palindromes are fun. The app's name stands for RDerik's Interactive  CIDR (RDICIDR). I had to add the Interactive to make the name work. I hope you like it.

@@ -10,7 +10,6 @@ jobs:
 
     steps:
 
-
     - name: checkout
       uses: actions/checkout@v4.1.0
 
@@ -71,22 +70,11 @@ jobs:
     - Build_Docker_Image_ReactApp
 
     runs-on: ubuntu-latest
-    #    permissions:
-      #      deployments: write
-      #      actions: write
-      #      checks: write
-      #      statuses: write
-      #      contents: write
-      #      pages: write
-      #      pull-requests: write
-      #      packages: write
-      #      repository-projects: write
     steps:
 
     - name: checkout
       uses: actions/checkout@v4.1.0
       with:
-        #        branch: master
         token: ${{ secrets.GITHUB_TOKEN }}
         repository: ahioros/deploy-workflow-react-example
         fetch-depth: 0
