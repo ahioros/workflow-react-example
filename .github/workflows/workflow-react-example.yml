@@ -3,38 +3,47 @@ on:
   push:
     branches:
     - master
+
 jobs:
   CI:
     runs-on: ubuntu-latest
+
     steps:
+
     - name: checkout
       uses: actions/checkout@v4.1.0
+
     - name: Install Node.js
       uses: actions/setup-node@v4.0.0
       with:
         node-version: 15.x
+
     - name: npm install
       run: npm install
+
     - name: npm lint
       run: npm run lint
+
     - name: npm prettier
       run: npm install prettier && npx prettier . --write && npm run prettier
+
     - name: npm test
       run: CI=true npm run test
+
     - name: npm build
       run: npm run build
+
   Build_Docker_Image_ReactApp:
     needs:
     - CI
+
     runs-on: ubuntu-latest
+
     steps:
+
     - name: checkout
       uses: actions/checkout@v4.1.0
-    - name: Login
-      uses: docker/login-action@v3.3.0
-      with:
-        username: "${{ secrets.DOCKERHUBCONNECTION_DOCKER_USERNAME }}"
-        password: "${{ secrets.DOCKERHUBCONNECTION_DOCKER_PASSWORD }}"
+
     - name: BuildAndPush
       uses: docker/login-action@v3.3.0
       with:
@@ -59,6 +68,7 @@ jobs:
   Deployment:
     needs:
     - Build_Docker_Image_ReactApp
+
     runs-on: ubuntu-latest
     #    permissions:
       #      deployments: write
@@ -71,17 +81,16 @@ jobs:
       #      packages: write
       #      repository-projects: write
     steps:
+
     - name: checkout
       uses: actions/checkout@v4.1.0
-#     # This action only supports checking out GitHub repositories
-#    - uses: actions/checkout@v4.1.0
       with:
         branch: master
         token: ${{ secrets.GITHUB_TOKEN }}
         repository: ahioros/deploy-workflow-react-example
         fetch-depth: 0
         persist-credentials: false
-#####
+
     - name: Deploy
       run: |-
         TAG=${{ github.run_id }}
@@ -94,6 +103,7 @@ jobs:
         git add --all
         git commit -m "Deployment ID: ${{ github.run_id }}"
       shell: bash
+
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
