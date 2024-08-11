@@ -70,7 +70,7 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         repository: ahioros/deploy-workflow-react-example
         fetch-depth: 0
-        persist-credentials: false
+        persist-credentials: true
 #####
     - name: Deploy
       run: |-
