@@ -86,7 +86,7 @@ jobs:
     - name: checkout
       uses: actions/checkout@v4.1.0
       with:
-        branch: master
+        #        branch: master
         token: ${{ secrets.GITHUB_TOKEN }}
         repository: ahioros/deploy-workflow-react-example
         fetch-depth: 0
