@@ -51,19 +51,15 @@ jobs:
         password: "${{ secrets.DOCKERHUBCONNECTION_DOCKER_PASSWORD }}"
 
     - name: Build the Docker image
-    #      run: docker build . --file "Dockerfile" -t ahioros/rdicidr:${{ github.run_id }}
       run: docker build . --file "Dockerfile" -t ttl.sh/rdicidr:${{ github.run_id }}
 
     - name: Create latest image as well
-    #      run: docker tag ahioros/rdicidr:${{ github.run_id }} ahioros/rdicidr:latest
       run: docker tag ttl.sh/rdicidr:${{ github.run_id }} ttl.sh/rdicidr:latest
 
     - name: Push Docker image with the version number
-    #      run: docker push ahioros/rdicidr:${{ github.run_id }}
       run: docker push ttl.sh/rdicidr:${{ github.run_id }}
 
     - name: Push the latest tag
-    #      run: docker push ahioros/rdicidr:latest
       run: docker push ttl.sh/rdicidr:latest
 
     - name: Logout
